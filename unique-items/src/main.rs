@@ -2,14 +2,16 @@ fn unique(a: &mut Vec<i32>)-> &mut Vec<i32>{
     let mut index=0;
     let mut temp;
     let b = a.clone();
+
    // let mut remove_elements = Vec::new();
     for i in b{
         temp = i;
         println!("temp {:?}", temp);
 
-        let j = a.iter().skip(index).position(|&x| x == temp).unwrap();
-        println!("j {}",j);
-        a.remove(j);
+        for j in index +1 .. a.len(){
+            a.remove(j);
+        }
+     
 
         index = index +1;
     }
